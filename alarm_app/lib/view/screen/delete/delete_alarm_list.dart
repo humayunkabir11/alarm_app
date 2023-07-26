@@ -18,7 +18,7 @@ class _DeleteAlarmScreenState extends State<DeleteAlarmScreen> {
           padding: const EdgeInsets.symmetric(horizontal: 24.0),
           child: Column(
             children: [
-                Text("Add Alarm"),
+                const Text("Add Alarm"),
               Container(
                 padding: const EdgeInsetsDirectional.symmetric(horizontal: 16, vertical: 20),
                 width: MediaQuery.of(context).size.width,

@@ -1,5 +1,8 @@
 import 'package:alarm_app/view/screen/alarm/alarm_list_screen.dart';
 import 'package:alarm_app/view/screen/home/home_screen.dart';
+import 'package:alarm_app/view/widgets/button/custom_elevated_button.dart';
+import 'package:alarm_app/view/widgets/sound_Container/custom_alarm_sound.dart';
+import 'package:alarm_app/view/widgets/text_field/custom_text_field.dart';
 import 'package:flutter/material.dart';
 
 class AlarmCreation extends StatefulWidget {
@@ -106,51 +109,13 @@ class _AlarmCreationState extends State<AlarmCreation> {
                   );
                 },),
               ),
-              TextFormField(
-                decoration:  InputDecoration(
-                  label: Text('Alarm Name'),
-                  hintText: "Task For now",
-                  labelStyle: TextStyle(color: Colors.grey,fontSize: 14),
-                  hintStyle: TextStyle(color: Colors.black,fontSize: 18),
-                ),
-              ),
+              // Alarm name field
+              const CustomTextField(),
 
                SizedBox(height: 10,),
-               GestureDetector(
-                 onTap:  (){
-                   Navigator.push(context, MaterialPageRoute(builder: (_)=>AlarmListScreen()));
-                 },
 
-                 child: Container(
-                   height: 80,
-                   decoration: BoxDecoration(
-                     border: Border(bottom: BorderSide(color: Colors.black12,width: 2))
-                   ),
-                   child: Row(
-                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                     children: [
-                        const Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                           Text("Alarm Sound"),
-                            SizedBox(height: 10,),
-                            Text("Fast And Furias.mp3",style: TextStyle(color: Color(0xff252118),fontSize: 18),)
-                     ]
-                   ),
-                       Container(
-                         height: 28,
-                         width: 28,
-                         decoration: BoxDecoration(
-                           border: Border.all(color: Colors.black12),
-                            borderRadius: BorderRadius.circular(8)
-                         ),
-                         child: const Center(
-                           child: Icon(Icons.arrow_forward_ios_rounded,size: 16,),
-                         ),
-                       )
-              ]),
-                 ),
-               ),
+               //Alarm  Sound select
+               const CustomAlarmSound(),
               const SizedBox(height: 16,),
               Text("Alarm Volume"),
               const SizedBox(height: 16,),
@@ -159,24 +124,10 @@ class _AlarmCreationState extends State<AlarmCreation> {
                 minHeight: 5,
               ),
              const SizedBox(height: 20,),
-              SizedBox(
-                height: 60,
-                width: MediaQuery.of(context).size.width,
-                child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.black,
-
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20),
-                        )
-                    ),
-
-                    onPressed: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (_0)=>AlarmListScreen()));
-                    },
-
-                    child: const Text("Add Alarm",style: TextStyle(color: Colors.white),)),
-              ),
+            //  Elevated Button
+             CustomElevatedButton(
+                sizeBoxWidth: MediaQuery.of(context).size.width,
+              )
             ],
           ),
         ),

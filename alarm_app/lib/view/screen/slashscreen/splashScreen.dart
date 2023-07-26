@@ -2,13 +2,14 @@
 
 import 'dart:async';
 
+import 'package:alarm_app/utils/images.dart';
 import 'package:alarm_app/view/screen/home/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 
 class SplashScreen extends StatefulWidget {
-  const SplashScreen({super.key});
+     const SplashScreen({super.key});
 
   @override
   State<SplashScreen> createState() => _SplashScreenState();
@@ -34,7 +35,7 @@ class _SplashScreenState extends State<SplashScreen> {
             alignment: Alignment.center,
             decoration: const BoxDecoration(
               image: DecorationImage(
-                    image: AssetImage("assets/images/bg_image.png"),
+                    image: AssetImage(AppImages.bgImage),
                     fit: BoxFit.fill
                 )
             ),
