@@ -1,6 +1,8 @@
 import 'package:alarm_app/view/screen/alarm/alarm_list_screen.dart';
 import 'package:flutter/material.dart';
 
+import '../alarm_creation/alarm_creation_screen.dart';
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -175,7 +177,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   backgroundColor: Colors.black,
                   child: const Icon(Icons.add,size: 35,color: Colors.white,),
                   onPressed: (){
-                   Navigator.push(context, MaterialPageRoute(builder: (_)=>AlarmListScreen()));
+                    Navigator.push(context, MaterialPageRoute(builder: (_)=>const AlarmCreation()));
                   })
             ]
         ),
