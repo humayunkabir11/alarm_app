@@ -1,4 +1,10 @@
+import 'package:alarm_app/utils/color.dart';
+import 'package:alarm_app/view/screen/sleep_schedule_Edit/sleep_shedule.dart';
+import 'package:alarm_app/view/widgets/container/custom_container.dart';
+import 'package:alarm_app/view/widgets/small_text/custom_small_text.dart';
 import 'package:flutter/material.dart';
+
+import '../../widgets/button/custom_outline_button.dart';
 
 class DeleteAlarmScreen extends StatefulWidget {
   const DeleteAlarmScreen({super.key});
@@ -16,213 +22,72 @@ class _DeleteAlarmScreenState extends State<DeleteAlarmScreen> {
       child: Scaffold(
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24.0),
-          child: Column(
-            children: [
-                const Text("Add Alarm"),
-              Container(
-                padding: const EdgeInsetsDirectional.symmetric(horizontal: 16, vertical: 20),
-                width: MediaQuery.of(context).size.width,
-                decoration: BoxDecoration(
-                  border: Border.all( color: Colors.black38),
-                  borderRadius: BorderRadius.circular(20),
+          child: Stack(
+        children: [
+        const SingleChildScrollView(
+        physics: BouncingScrollPhysics(),
+        child: Align(
+          alignment: Alignment.topCenter,
+          child: Padding(
+            padding: EdgeInsets.only(bottom: 100),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                CustomSmallText(
+                  top: 50,
+                  text: "Alarm List ",
                 ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
-
-                          children: [
-                            Container(
-                              height:10,
-                              width: 10,
-                              decoration: const  BoxDecoration(
-                                  color: Colors.black,
-                                  shape: BoxShape.circle
-                              ),
-                            ),
-                            const SizedBox(width: 7,),
-                            const Text('WeakEnds',style: TextStyle(color: Colors.black38,fontSize: 10),)
-                          ],
-                        ),
-                        const SizedBox(height: 22,),
-                        RichText(text: const TextSpan(
-                            children: [
-                              TextSpan(text: "10.00",style: TextStyle(
-                                  fontSize: 30,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.bold
-                              ),),
-                              TextSpan(text: "AM",
-                                style: TextStyle(
-                                    fontSize: 20,
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold
-                                ),
-                              ),
-
-                            ]
-                        )),
-                        const Text("Week up for office")
-
-                      ],
-                    ),
-                    SizedBox(
-                      child: Checkbox(
-                          value: isSwitch1,
-                          onChanged: (value){
-                        setState(() {
-                           isSwitch1 = value!;
-
-                        });
-
-                      },
-                        activeColor: Colors.black,
-
-                      ),
-                    )
-                  ],
+                CustomContainer(
+                  timeText: "12:00",
+                  bgColor: AppColors.secondaryColor,
+                  boxHeight: 24,
                 ),
-              ),
-                const  SizedBox(height: 10),
-              Container(
-                padding: const EdgeInsetsDirectional.symmetric(horizontal: 16, vertical: 20),
-                width: MediaQuery.of(context).size.width,
-                decoration: BoxDecoration(
-                  border: Border.all( color: Colors.black38),
-                  borderRadius: BorderRadius.circular(20),
+                CustomContainer(
+                  topTxt: "Today",
+                  bottomText: "Start office work",
+                  bgColor: AppColors.secondaryColor,
+                  boxHeight: 24,
                 ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
-
-                          children: [
-                            Container(
-                              height:10,
-                              width: 10,
-                              decoration: const  BoxDecoration(
-                                  color: Colors.black,
-                                  shape: BoxShape.circle
-                              ),
-                            ),
-                            const SizedBox(width: 7,),
-                            const Text('WeakEnds',style: TextStyle(color: Colors.black38,fontSize: 10),)
-                          ],
-                        ),
-                        const SizedBox(height: 22,),
-                        RichText(text: const TextSpan(
-                            children: [
-                              TextSpan(text: "10.00",style: TextStyle(
-                                  fontSize: 30,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.bold
-                              ),),
-                              TextSpan(text: "AM",
-                                style: TextStyle(
-                                    fontSize: 20,
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold
-                                ),
-                              ),
-
-                            ]
-                        )),
-                        const Text("Week up for office")
-
-                      ],
-                    ),
-                    SizedBox(
-                      child: Checkbox(
-                        value: isSwitch1,
-                        onChanged: (value){
-                          setState(() {
-                            isSwitch1 = value!;
-                          });
-
-                        },
-                        activeColor: Colors.black,
-
-                      ),
-                    )
-                  ],
+                CustomContainer(
+                  topTxt: "Today",
+                  bottomText: "Start office work",
+                  bgColor: AppColors.secondaryColor,
+                  boxHeight: 24,
                 ),
-              ),
-               const SizedBox(height: 10),
-              Container(
-                padding: const EdgeInsetsDirectional.symmetric(horizontal: 16, vertical: 20),
-                width: MediaQuery.of(context).size.width,
-                decoration: BoxDecoration(
-                  border: Border.all( color: Colors.black38),
-                  borderRadius: BorderRadius.circular(20),
+                CustomContainer(
+                  topTxt: "Today",
+                  bottomText: "Start office work",
+                  bgColor: AppColors.secondaryColor,
+                  boxHeight: 24,
                 ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
-
-                          children: [
-                            Container(
-                              height:10,
-                              width: 10,
-                              decoration: const  BoxDecoration(
-                                  color: Colors.black,
-                                  shape: BoxShape.circle
-                              ),
-                            ),
-                            const SizedBox(width: 7,),
-                            const Text('WeakEnds',style: TextStyle(color: Colors.black38,fontSize: 10),)
-                          ],
-                        ),
-                        const SizedBox(height: 22,),
-                        RichText(text: const TextSpan(
-                            children: [
-                              TextSpan(text: "10.00",style: TextStyle(
-                                  fontSize: 30,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.bold
-                              ),),
-                              TextSpan(text: "AM",
-                                style: TextStyle(
-                                    fontSize: 20,
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold
-                                ),
-                              ),
-
-                            ]
-                        )),
-                        const Text("Week up for office")
-
-                      ],
-                    ),
-                    SizedBox(
-                      child: Checkbox(
-                        value: isSwitch1,
-                        onChanged: (value){
-                          setState(() {
-                            isSwitch1 = value!;
-
-                          });
-
-                        },
-                        activeColor: Colors.black,
-
-                      ),
-                    )
-                  ],
+                CustomContainer(
+                  topTxt: "Today",
+                  bottomText: "Start office work",
+                  bgColor: AppColors.secondaryColor,
+                  boxHeight: 24,
                 ),
-              ),
-            ],
+
+              ],
+            ),
           ),
+        ),
+      ),
+
+      Align(
+        alignment: Alignment.bottomCenter,
+        child: CustomOutlineButton(
+
+          buttonText: "Delete this alarm",
+          borderRadius: 16,
+          buttonBgColor: AppColors.orangeButtonColor,
+          buttonTextColor: AppColors.orangeButtonTextColor,
+          onPressed: (){
+            Navigator.push(context, MaterialPageRoute(builder: (_)=> SleepScheduleEdit()));
+          },
+        ),
+      ),
+      ],
+    ),
         ),
       ),
     );

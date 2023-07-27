@@ -1,9 +1,10 @@
-import 'package:alarm_app/view/screen/alarm/alarm_list_screen.dart';
 import 'package:alarm_app/view/screen/home/home_screen.dart';
-import 'package:alarm_app/view/widgets/button/custom_elevated_button.dart';
+import 'package:alarm_app/view/widgets/button/custom_outline_button.dart';
 import 'package:alarm_app/view/widgets/sound_Container/custom_alarm_sound.dart';
 import 'package:alarm_app/view/widgets/text_field/custom_text_field.dart';
 import 'package:flutter/material.dart';
+
+import '../alarm_list/alarm_list_screen.dart';
 
 class AlarmCreation extends StatefulWidget {
   const AlarmCreation({super.key});
@@ -125,8 +126,13 @@ class _AlarmCreationState extends State<AlarmCreation> {
               ),
              const SizedBox(height: 20,),
             //  Elevated Button
-             CustomElevatedButton(
-                sizeBoxWidth: MediaQuery.of(context).size.width,
+             CustomOutlineButton(
+               onPressed: (){
+                 Navigator.push(context, MaterialPageRoute(builder: (_)=>AlarmListScreen()));
+
+             },
+             sizeBoxWidth: MediaQuery.of(context).size.width,
+             buttonText: "Add Alarm",buttonIconSize: 0,
               )
             ],
           ),

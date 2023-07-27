@@ -1,5 +1,5 @@
 import 'package:alarm_app/utils/color.dart';
-import 'package:alarm_app/view/screen/alarm/alarm_list_screen.dart';
+import 'package:alarm_app/view/widgets/button/custom_outline_button.dart';
 import 'package:alarm_app/view/widgets/container/custom_container.dart';
 import 'package:flutter/material.dart';
 
@@ -65,7 +65,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
 
               CustomContainer(),
-
               const SizedBox(
                 height: 28,
               ),
@@ -85,30 +84,31 @@ class _HomeScreenState extends State<HomeScreen> {
                 "Honey birthday",
                 style: TextStyle(fontSize: 10, color: Colors.grey),
               ),
+
+             Row(
+
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  const Text('Add new Alarm ',
+                      style: TextStyle(fontSize: 15, color: Colors.black)),
+                  const SizedBox(width: 10,),
+
+                  CustomOutlineButton(
+                    sizeBoxWidth: 60,
+                   sizeBoxHeight: 60,
+                   onPressed: (){
+                     Navigator.push(context, MaterialPageRoute(builder: (_)=>AlarmCreation()));},
+                  buttonIcon: Icons.add,
+                    borderRadius: 16,
+                  ),
+                ],
+              )
+
             ],
           ),
         ),
-        floatingActionButton:
-            Row(mainAxisAlignment: MainAxisAlignment.end, children: [
-          const Text('Add new Alarm ',
-              style: TextStyle(fontSize: 15, color: Colors.black)),
-          const SizedBox(
-            width: 15,
-          ),
-          FloatingActionButton(
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(16)),
-              backgroundColor: Colors.black,
-              child: const Icon(
-                Icons.add,
-                size: 35,
-                color: Colors.white,
-              ),
-              onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (_) => const AlarmCreation()));
-              })
-        ]),
+
+
         bottomNavigationBar: BottomNavigationBar(
           showSelectedLabels: true,
           showUnselectedLabels: true,

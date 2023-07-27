@@ -1,4 +1,10 @@
+import 'package:alarm_app/utils/color.dart';
 import 'package:alarm_app/view/screen/delete/delete_alarm_list.dart';
+import 'package:alarm_app/view/widgets/button/custom_outline_button.dart';
+import 'package:alarm_app/view/widgets/small_text/custom_small_text.dart';
+import 'package:alarm_app/view/widgets/sound_Container/custom_alarm_sound.dart';
+import 'package:alarm_app/view/widgets/text_field/custom_text_field.dart';
+import 'package:alarm_app/view/widgets/top_row/custom_top_row.dart';
 import 'package:flutter/material.dart';
 
 class EditScreen extends StatefulWidget {
@@ -19,18 +25,13 @@ class _EditScreenState extends State<EditScreen> {
           child: SingleChildScrollView(
             physics: ScrollPhysics(),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Row(
-                  children: [
-                    Expanded(flex: 3,
-                        child: Row(children: [
-                          IconButton(onPressed: (){}, icon: Icon(Icons.close_rounded)),
-                          Text('Add Alarm')
-                        ],)),
-                    IconButton(onPressed: (){}, icon: Icon(Icons.check)),
-                  ],
-                ),
+                // Top RoW
+                CustomTopRow(),
                SizedBox(height: 16,),
+
+               // Alarm clock
                Container(
                  width: MediaQuery.of(context).size.width,
                  height: 300,
@@ -47,6 +48,8 @@ class _EditScreenState extends State<EditScreen> {
                     Text("Weekend",style: TextStyle(color: Color(0xff8D93A3),fontSize: 14)),
                   ],
                 ),
+
+               // select day
                SizedBox(
                  height: 70,
                  child: ListView.builder(
@@ -55,7 +58,7 @@ class _EditScreenState extends State<EditScreen> {
                      itemCount: days.length,
                      itemBuilder: (context,index){
                    return Container(
-                     margin: EdgeInsetsDirectional.symmetric(horizontal: 5),
+                     margin: const EdgeInsetsDirectional.symmetric(horizontal: 5),
                      width: 45,
                      decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(16),
@@ -65,47 +68,14 @@ class _EditScreenState extends State<EditScreen> {
                    );
                  }),
                ),
-                TextFormField(
-                  decoration:  InputDecoration(
-                    label: Text('Alarm Name'),
-                    hintText: "Task For now",
-                    labelStyle: TextStyle(color: Colors.grey,fontSize: 14),
-                    hintStyle: TextStyle(color: Colors.black,fontSize: 18),
-                  ),
-                ),
 
-                SizedBox(height: 10,),
-                Container(
-                  height: 80,
-                  decoration: BoxDecoration(
-                      border: Border(bottom: BorderSide(color: Colors.black12,width: 2))
-                  ),
-                  child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        const Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text("Alarm Sound"),
-                              SizedBox(height: 10,),
-                              Text("Fast And Furias.mp3",style: TextStyle(color: Color(0xff252118),fontSize: 18),)
-                            ]
-                        ),
-                        Container(
-                          height: 28,
-                          width: 28,
-                          decoration: BoxDecoration(
-                              border: Border.all(color: Colors.black12),
-                              borderRadius: BorderRadius.circular(8)
-                          ),
-                          child: const Center(
-                            child: Icon(Icons.arrow_forward_ios_rounded,size: 16,),
-                          ),
-                        )
-                      ]),
-                ),
+              //text field
+              CustomTextField(),
+
+                const SizedBox(height: 10,),
+                const CustomAlarmSound(),
                 const SizedBox(height: 16,),
-                Text("Alarm Volume"),
+                const CustomSmallText(text: "Alarm Volume",),
                 const SizedBox(height: 16,),
                 const LinearProgressIndicator(
                   backgroundColor: Color(0xffF5F5F5),value: 0.7,
@@ -113,23 +83,16 @@ class _EditScreenState extends State<EditScreen> {
                 ),
                 const SizedBox(height: 20,),
 
-                SizedBox(
-                  height: 60,
-                  width: MediaQuery.of(context).size.width,
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Color(0xffFFE4E4),
-                      shape: RoundedRectangleBorder(
-                         borderRadius: BorderRadius.circular(16),
-                      )
-                    ),
+                CustomOutlineButton(
+                  buttonText: "Delete this alarm",
 
-                    onPressed: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (_)=>DeleteAlarmScreen()));
-                    },
-
-                    child: Text("Delete this alarm",style: TextStyle(color: Color(0xffFF7878)),),),
-                )
+                 borderRadius: 16,
+                 buttonBgColor: AppColors.orangeButtonColor,
+                  buttonTextColor: AppColors.orangeButtonTextColor,
+                 onPressed: (){
+                   Navigator.push(context, MaterialPageRoute(builder: (_)=>DeleteAlarmScreen()));
+                 },
+               )
               ],
             ),
           ),

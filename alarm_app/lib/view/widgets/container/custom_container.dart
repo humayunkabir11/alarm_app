@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CustomContainer extends StatefulWidget {
-
   const CustomContainer(
       {super.key,
       this.bgColor = AppColors.yellowColor,
@@ -20,7 +19,13 @@ class CustomContainer extends StatefulWidget {
       this.dotWidth = 10,
       this.bottomTextSize = 16,
       this.topTextPadding = 7,
-        this.topTextColor = AppColors.blackColor});
+      this.topTextColor = AppColors.blackColor,
+      this.onTap,
+      this.onLongPress,
+      this.boxHeight = 20});
+
+  final VoidCallback? onTap;
+  final VoidCallback? onLongPress;
 
   final Color bgColor;
   final Color timeTextColor;
@@ -39,88 +44,105 @@ class CustomContainer extends StatefulWidget {
   final double amTextSize;
   final double dotHeight;
   final double dotWidth;
+  final double boxHeight;
 
   @override
   State<CustomContainer> createState() => _CustomContainerState();
 }
 
 class _CustomContainerState extends State<CustomContainer> {
-  bool isSwitch =true;
+  bool isSwitch = true;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.symmetric(vertical: 10),
-      padding:
-          const EdgeInsetsDirectional.symmetric(horizontal: 16, vertical: 20),
-      width: MediaQuery.of(context).size.width,
-      decoration: BoxDecoration(
-        border: Border.all(color: Colors.black38),
-        color: widget.bgColor,
-        borderRadius: BorderRadius.circular(16),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                children: [
-                  Container(
-                    height: widget.dotHeight,
-                    width: widget.dotWidth,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(50),
-                        color: Colors.black),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(left: widget.topTextPadding),
-                    child: Text(
-                      widget.topTxt,
-                      style: GoogleFonts.nunitoSans(
-                        fontWeight: FontWeight.w400, fontSize: widget.topTextSize,color: widget.topTextColor
-                      ),
+    return InkWell(
+      onTap: widget.onTap,
+      onLongPress: widget.onLongPress,
+      child: Container(
+        margin: const EdgeInsets.symmetric(vertical: 10),
+        padding:
+            const EdgeInsetsDirectional.symmetric(horizontal: 16, vertical: 20),
+        width: MediaQuery.of(context).size.width,
+        decoration: BoxDecoration(
+          border: Border.all(color: Colors.black38),
+          color: widget.bgColor,
+          borderRadius: BorderRadius.circular(16),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    Container(
+                      height: widget.dotHeight,
+                      width: widget.dotWidth,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(50),
+                          color: Colors.black),
                     ),
-                  )
-                ],
-              ),
-              const SizedBox(
-                height: 22,
-              ),
-              RichText(
-                  text: TextSpan(children: [
-                TextSpan(
-                    text: widget.timeText,
-                    style: GoogleFonts.urbanist(
-                        fontSize: widget.timeTextSize,
-                        color: widget.timeTextColor,
-                        fontWeight: FontWeight.w600)),
-                TextSpan(
-                  text: widget.amText,
-                  style: GoogleFonts.nunitoSans(
-                      fontSize: widget.amTextSize,
-                      color: widget.amTExtColor,
-                      fontWeight: FontWeight.w600),
+                    Padding(
+                      padding: EdgeInsets.only(left: widget.topTextPadding),
+                      child: Text(
+                        widget.topTxt,
+                        style: GoogleFonts.nunitoSans(
+                            fontWeight: FontWeight.w400,
+                            fontSize: widget.topTextSize,
+                            color: widget.topTextColor),
+                      ),
+                    )
+                  ],
                 ),
-              ])),
-              Text(
-                widget.bottomText,
-                style: GoogleFonts.nunitoSans(
-                    fontSize: widget.bottomTextSize,
-                    color: widget.amTExtColor,
-                    fontWeight: FontWeight.w400),
-              ),
-            ],
-          ),
-          SizedBox(
-            child: Switch(value: isSwitch,onChanged: (value){
-              setState(() {
-                isSwitch = value;
-              });
-            }),
-          )
-        ],
+                const SizedBox(
+                  height: 22,
+                ),
+                RichText(
+                    text: TextSpan(children: [
+                  TextSpan(
+                      text: widget.timeText,
+                      style: GoogleFonts.urbanist(
+                          fontSize: widget.timeTextSize,
+                          color: widget.timeTextColor,
+                          fontWeight: FontWeight.w600)),
+                  TextSpan(
+                    text: widget.amText,
+                    style: GoogleFonts.nunitoSans(
+                        fontSize: widget.amTextSize,
+                        color: widget.amTExtColor,
+                        fontWeight: FontWeight.w600),
+                  ),
+                ])),
+                Text(
+                  widget.bottomText,
+                  style: GoogleFonts.nunitoSans(
+                      fontSize: widget.bottomTextSize,
+                      color: widget.amTExtColor,
+                      fontWeight: FontWeight.w400),
+                ),
+              ],
+            ),
+            SizedBox(
+              height: widget.boxHeight,
+              child: widget.boxHeight == 20? Switch(
+                  value: isSwitch,
+                  onChanged: (value) {
+                    setState(() {
+                      isSwitch = !isSwitch;
+                    });
+                  }) : Checkbox(
+
+                activeColor: AppColors.blackColor,
+                  value: isSwitch,
+                  onChanged: (value) {
+                    setState(() {
+                      isSwitch = !isSwitch;
+                    });
+                  }),
+            ),
+          ],
+        ),
       ),
     );
   }
