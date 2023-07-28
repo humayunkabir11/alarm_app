@@ -1,5 +1,7 @@
+import 'package:alarm_app/utils/color.dart';
 import 'package:alarm_app/view/screen/home/home_screen.dart';
 import 'package:alarm_app/view/widgets/button/custom_outline_button.dart';
+import 'package:alarm_app/view/widgets/selectdays/custom_select_days.dart';
 import 'package:alarm_app/view/widgets/sound_Container/custom_alarm_sound.dart';
 import 'package:alarm_app/view/widgets/text_field/custom_text_field.dart';
 import 'package:flutter/material.dart';
@@ -81,6 +83,7 @@ class _AlarmCreationState extends State<AlarmCreation> {
                 ),
               ),
 
+               // middle row
               const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -89,29 +92,13 @@ class _AlarmCreationState extends State<AlarmCreation> {
                 ],
               ),
              const SizedBox(height: 10,),
-              SizedBox(
-                height: 60,
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  shrinkWrap: true,
-                  itemCount: days.length,
-                  itemBuilder: (context, index) {
-                  return Container(
-                     margin: EdgeInsetsDirectional.symmetric(horizontal: 2),
-                      width: 48,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(16),
-                      border: Border.all(color: Colors.black12),
-                      color: const Color(0xffF5F5F5)
-                    ),
-                   child: Center(
-                     child: Text(days[index], style: const TextStyle(color: Colors.black),),
-                   ),
-                  );
-                },),
-              ),
+              CustomSelectdays(),
+
               // Alarm name field
-              const CustomTextField(),
+              const CustomTextField(
+                label: "Alarm Name",
+                labelColor: AppColors.blackColor,
+              ),
 
                SizedBox(height: 10,),
 

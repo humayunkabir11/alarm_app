@@ -1,6 +1,7 @@
 import 'package:alarm_app/utils/color.dart';
 import 'package:alarm_app/view/screen/delete/delete_alarm_list.dart';
 import 'package:alarm_app/view/widgets/button/custom_outline_button.dart';
+import 'package:alarm_app/view/widgets/selectdays/custom_select_days.dart';
 import 'package:alarm_app/view/widgets/small_text/custom_small_text.dart';
 import 'package:alarm_app/view/widgets/sound_Container/custom_alarm_sound.dart';
 import 'package:alarm_app/view/widgets/text_field/custom_text_field.dart';
@@ -50,27 +51,14 @@ class _EditScreenState extends State<EditScreen> {
                 ),
 
                // select day
-               SizedBox(
-                 height: 70,
-                 child: ListView.builder(
-                       shrinkWrap: true,
-                      scrollDirection: Axis.horizontal,
-                     itemCount: days.length,
-                     itemBuilder: (context,index){
-                   return Container(
-                     margin: const EdgeInsetsDirectional.symmetric(horizontal: 5),
-                     width: 45,
-                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(16),
-                       color: Color(0xffF2F2F2)
-                     ),
-                     child: Center(child: Text(days[index])) ,
-                   );
-                 }),
+               CustomSelectdays(
+                 color: AppColors.grayColor,
                ),
 
               //text field
-              CustomTextField(),
+              CustomTextField(
+                label: "Alarm Name",
+              ),
 
                 const SizedBox(height: 10,),
                 const CustomAlarmSound(),

@@ -16,7 +16,11 @@ class CustomOutlineButton extends StatelessWidget {
       this.buttonIcon,
       this.iconColor = Colors.white,
         this.buttonIconSize = 24,
-        this.buttonTextColor = AppColors.transparentColor
+        this.buttonTextColor = AppColors.transparentColor,
+        this.bottom = 0,
+        this.left =0,
+        this.right =0,
+        this.top = 0
 
       });
 
@@ -28,6 +32,10 @@ class CustomOutlineButton extends StatelessWidget {
   final FontWeight buttonTextFontWeight;
   final double buttonTextFontSize;
   final double buttonIconSize;
+  final double top;
+  final double left;
+  final double bottom;
+  final double  right;
   final Color buttonBgColor;
   final Color buttonTextColor;
   final IconData ?buttonIcon;
@@ -38,25 +46,31 @@ class CustomOutlineButton extends StatelessWidget {
     return SizedBox(
       height: sizeBoxHeight,
       width: sizeBoxWidth,
-      child: OutlinedButton(
-        style: OutlinedButton.styleFrom(
-            backgroundColor: buttonBgColor,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(borderRadius),
-            )),
-        onPressed: onPressed,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(buttonIcon, size: buttonIconSize, color: Colors.white),
-            Text(
-              buttonText,
-              style: GoogleFonts.nunitoSans(
-                    color: buttonTextColor,
-                    fontWeight: buttonTextFontWeight,
-                    fontSize: buttonTextFontSize),
-            ),
-          ],
+      child: Padding(
+        padding:  EdgeInsets.only(top: top,bottom: bottom,left: left,right: right),
+        child: OutlinedButton(
+
+          style: OutlinedButton.styleFrom(
+              backgroundColor: buttonBgColor,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(borderRadius),
+              )),
+          onPressed: onPressed,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(buttonIcon, size: buttonIconSize, color: Colors.white),
+              Center(
+                child: Text(
+                  buttonText,
+                  style: GoogleFonts.nunitoSans(
+                        color: buttonTextColor,
+                        fontWeight: buttonTextFontWeight,
+                        fontSize: buttonTextFontSize),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

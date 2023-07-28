@@ -7,7 +7,7 @@ class CustomSmallText extends StatelessWidget {
     this.text = "Alarm",
     this.textColor= AppColors.blackColor,
     this.fontWeight = FontWeight.w600,
-    this.textFondSize =18,
+    this.textFondSize =14,
     this.top = 0.0,
     this.left = 0,
     this.right = 0 ,
