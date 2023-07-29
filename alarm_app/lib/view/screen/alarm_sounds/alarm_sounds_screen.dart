@@ -4,23 +4,18 @@ import 'package:alarm_app/view/widgets/text_field/custom_text_field.dart';
 
 import 'package:alarm_app/view/widgets/top_row/custom_top_row.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class AlarmSounds extends StatefulWidget {
-  AlarmSounds({super.key});
+  const AlarmSounds({super.key});
 
   @override
   State<AlarmSounds> createState() => _AlarmSoundsState();
 }
 
 class _AlarmSoundsState extends State<AlarmSounds> {
-  int groupValue = 0;
+  bool groupValue = true;
+  List soundName = ["Silent","Fast and Furious.mp3","Beep","Butterfly","Dragon","Confident","Nokia","Samsung","Samsung"];
 
-  void radio(value) {
-    setState(() {
-      groupValue = value;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,13 +24,14 @@ class _AlarmSoundsState extends State<AlarmSounds> {
         body: Padding(
           padding: EdgeInsets.only(bottom: 40.0,left: 24,right: 24,),
           child: SingleChildScrollView(
+            physics: BouncingScrollPhysics(),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                CustomTopRow(
+                const CustomTopRow(
                   text: "Alarm Sound",
                 ),
-                CustomTextField(
+                const CustomTextField(
                   hintText: "Add New",
                   hintFontWeight: FontWeight.w600,
                   hintColor: AppColors.blackColor,
@@ -44,12 +40,11 @@ class _AlarmSoundsState extends State<AlarmSounds> {
                   iconColor: AppColors.blackColor,
                   iconSize: 24,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
-                CustomSmallText(
+                const CustomSmallText(
                   top: 20,
-
                   text: "Sound Device",
                   textColor: AppColors.grayTextColor,
                 ),
@@ -57,8 +52,8 @@ class _AlarmSoundsState extends State<AlarmSounds> {
                   height: MediaQuery.of(context).size.height,
                   child: ListView.builder(
                     shrinkWrap: true,
-                      scrollDirection: Axis.vertical,
-                      itemCount: 15,
+                    physics: NeverScrollableScrollPhysics(),
+                      itemCount: soundName.length,
                       itemBuilder: (context, index) {
                         return Padding(
                           padding: const EdgeInsets.symmetric(vertical: 6.0),
@@ -72,11 +67,17 @@ class _AlarmSoundsState extends State<AlarmSounds> {
                             child: Center(
                               child: RadioListTile(
                                 controlAffinity: ListTileControlAffinity.trailing,
-                                title: const Text("Fast and Furious.mp3"),
+
+                                title: Text(soundName[index]),
                                 activeColor: AppColors.primaryColor,
-                                value: 0,
+                                value: groupValue,
                                 groupValue: groupValue,
-                                onChanged: radio,
+                                onChanged: (value) {
+                                  value = groupValue;
+                                  setState(() {
+                                    groupValue = !groupValue;
+                                  });
+                                },
                               ),
                             ),
                           ),
@@ -91,3 +92,6 @@ class _AlarmSoundsState extends State<AlarmSounds> {
     );
   }
 }
+
+
+

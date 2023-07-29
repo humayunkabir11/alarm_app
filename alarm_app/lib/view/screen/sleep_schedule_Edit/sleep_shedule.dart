@@ -66,7 +66,7 @@ class _SleepScheduleEditState extends State<SleepScheduleEdit> {
                 ),
                 const SizedBox(height: 25,),
                  CustomOutlineButton(
-                  onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>AlarmSounds()));},
+                  onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>const AlarmSounds()));},
                   buttonBgColor:  AppColors.orangeButtonColor,
                   buttonTextColor: AppColors.orangeButtonTextColor,
                   buttonText: "delete this Schedule",
