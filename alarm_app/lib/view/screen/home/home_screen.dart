@@ -1,4 +1,6 @@
 import 'package:alarm_app/utils/color.dart';
+import 'package:alarm_app/view/screen/alarm_list/alarm_list_screen.dart';
+import 'package:alarm_app/view/screen/settings/setting_screen.dart';
 import 'package:alarm_app/view/widgets/button/custom_outline_button.dart';
 import 'package:alarm_app/view/widgets/container/custom_container.dart';
 import 'package:flutter/material.dart';
@@ -63,7 +65,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 height: 10,
               ),
 
-
               CustomContainer(),
               const SizedBox(
                 height: 28,
@@ -102,35 +103,14 @@ class _HomeScreenState extends State<HomeScreen> {
                     borderRadius: 16,
                   ),
                 ],
-              )
+              ),
 
             ],
           ),
+
         ),
 
 
-        bottomNavigationBar: BottomNavigationBar(
-          showSelectedLabels: true,
-          showUnselectedLabels: true,
-          unselectedItemColor: const Color(0xff252118),
-          selectedItemColor: const Color(0xff256BFD),
-          items: const [
-            BottomNavigationBarItem(
-              label: "clock",
-              icon: Icon(
-                Icons.watch_later_outlined,
-              ),
-            ),
-            BottomNavigationBarItem(
-              label: "Alarm ",
-              icon: Icon(Icons.alarm_add_outlined),
-            ),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.watch), label: "Stop watch"),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.settings), label: "Setting"),
-          ],
-        ),
       ),
     );
   }

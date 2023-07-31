@@ -1,5 +1,4 @@
 import 'package:alarm_app/utils/color.dart';
-import 'package:alarm_app/view/screen/alarm_sounds/alarm_sounds_screen.dart';
 import 'package:alarm_app/view/screen/settings/setting_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -41,7 +40,7 @@ class AlertDialogBoxScreen extends StatelessWidget {
                 buttonText: "Cancel",
                 buttonTextColor: AppColors.blackColor,
                 sizeBoxHeight: 40,
-                sizeBoxWidth: 140,
+                sizeBoxWidth: 130,
                 buttonBgColor: AppColors.ashColor,
                 buttonTextFontSize: 16,
                 buttonTextFontWeight: FontWeight.w600,
@@ -55,7 +54,7 @@ class AlertDialogBoxScreen extends StatelessWidget {
                 buttonText: "Delete",
                 buttonTextColor: AppColors.orangeButtonTextColor,
                 sizeBoxHeight: 40,
-                sizeBoxWidth: 140,
+                sizeBoxWidth: 130,
                 buttonBgColor: AppColors.orangeButtonColor,
                 buttonTextFontSize: 16,
                 buttonTextFontWeight: FontWeight.w600,

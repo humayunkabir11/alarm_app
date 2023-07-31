@@ -47,22 +47,8 @@ class _AlarmListScreenState extends State<AlarmListScreen> {
          ),
        ),
 
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-        bottomNavigationBar: BottomNavigationBar(
-          showSelectedLabels: true,
-          showUnselectedLabels: true,
-          unselectedItemColor:const Color(0xff252118),
-          selectedItemColor: const Color(0xff256BFD),
-          items: const [
-            BottomNavigationBarItem(
-              label: "clock",
-              icon: Icon(Icons.watch_later_outlined,),),
-            BottomNavigationBarItem(
-              label: "Alarm ",
-              icon: Icon(Icons.alarm_add_outlined),),
-            BottomNavigationBarItem(icon: Icon(Icons.watch),label: "Stop watch"),
-            BottomNavigationBarItem(icon: Icon(Icons.settings),label: "Setting"),
-          ],),
+        // floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+       
       ),
     );
   }

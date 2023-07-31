@@ -4,6 +4,7 @@ import 'dart:async';
 
 import 'package:alarm_app/utils/images.dart';
 import 'package:alarm_app/view/screen/home/home_screen.dart';
+import 'package:alarm_app/view/screen/navigation/navigation_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -20,7 +21,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     Timer(const Duration(seconds: 2), () {
-      Navigator.push(context, MaterialPageRoute(builder: (_) => const HomeScreen()));
+      Navigator.push(context, MaterialPageRoute(builder: (_) => const NavigationScreen()));
     });
     super.initState();
   }

@@ -9,7 +9,7 @@ import 'package:alarm_app/view/widgets/top_row/custom_top_row.dart';
 import 'package:flutter/material.dart';
 
 class EditScreen extends StatefulWidget {
-  EditScreen({super.key});
+  const EditScreen({super.key});
 
   @override
   State<EditScreen> createState() => _EditScreenState();
@@ -56,7 +56,7 @@ class _EditScreenState extends State<EditScreen> {
                ),
 
               //text field
-              CustomTextField(
+              const CustomTextField(
                 label: "Alarm Name",
               ),
 
@@ -78,7 +78,7 @@ class _EditScreenState extends State<EditScreen> {
                  buttonBgColor: AppColors.orangeButtonColor,
                   buttonTextColor: AppColors.orangeButtonTextColor,
                  onPressed: (){
-                   Navigator.push(context, MaterialPageRoute(builder: (_)=>DeleteAlarmScreen()));
+                   Navigator.push(context, MaterialPageRoute(builder: (_)=>const DeleteAlarmScreen()));
                  },
                )
               ],
