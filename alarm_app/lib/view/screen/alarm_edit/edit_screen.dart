@@ -16,7 +16,10 @@ class EditScreen extends StatefulWidget {
 }
 
 class _EditScreenState extends State<EditScreen> {
+
   List days = ["Mon","Tue","Wed"," Thu","Fri","Sat","Sun"];
+  final bool isSelected = false;
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -52,7 +55,12 @@ class _EditScreenState extends State<EditScreen> {
 
                // select day
                CustomSelectdays(
-                 color: AppColors.grayColor,
+                 color: isSelected ? Colors.blue : AppColors.grayColor,
+                 onTap: (){
+                    setState({
+                      isSelected = !isSelected;
+                    });
+                 }
                ),
 
               //text field

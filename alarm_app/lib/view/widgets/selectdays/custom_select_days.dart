@@ -6,12 +6,14 @@ class CustomSelectdays extends StatelessWidget {
    CustomSelectdays({super.key,
      this.boxHeight = 60,
      this.containerWidth = 48,
-     this.color = AppColors.primaryColor});
+     this.color = AppColors.primaryColor,
+     required this.onTap});
 
 
    final double boxHeight;
    final double containerWidth;
    final Color  color;
+   final VoidCallback onTap;
 
   List days = ["Mon","Tue","Wed"," Thu","Fri","Sat","Sun"];
 
@@ -24,7 +26,9 @@ class CustomSelectdays extends StatelessWidget {
           scrollDirection: Axis.horizontal,
           shrinkWrap: true,
           itemCount:  days.length,
-          itemBuilder: (context , index)=> Container(
+          itemBuilder: (context , index)=> InkWell(
+            onTap: onTap,
+            child: Container(
             width: containerWidth,
             margin: const EdgeInsetsDirectional.symmetric(horizontal: 2),
             decoration: BoxDecoration(
@@ -34,6 +38,7 @@ class CustomSelectdays extends StatelessWidget {
             ),
             child: Center(child: Text(days[index],style: GoogleFonts.nunitoSans(fontWeight: FontWeight.w600,fontSize: 14,color: AppColors.transparentColor),)),
           ) ),
+          )
     );
   }
 }
