@@ -27,13 +27,13 @@ class _EditScreenState extends State<EditScreen> {
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24.0),
           child: SingleChildScrollView(
-            physics: ScrollPhysics(),
+            physics: const ScrollPhysics(),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 // Top RoW
-                CustomTopRow(),
-               SizedBox(height: 16,),
+                const CustomTopRow(),
+               const SizedBox(height: 16,),
 
                // Alarm clock
                Container(
@@ -41,10 +41,12 @@ class _EditScreenState extends State<EditScreen> {
                  height: 300,
                  decoration: BoxDecoration(
                    borderRadius: BorderRadius.circular(20),
-                   color: Color(0xffF2F2F2),
+                   color: const Color(0xffF2F2F2),
 
                  ),
                ),
+
+                //    middle row
                 const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -67,7 +69,6 @@ class _EditScreenState extends State<EditScreen> {
               const CustomTextField(
                 label: "Alarm Name",
               ),
-
                 const SizedBox(height: 10,),
                 const CustomAlarmSound(),
                 const SizedBox(height: 16,),
