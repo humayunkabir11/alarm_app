@@ -13,9 +13,9 @@ class AlarmSounds extends StatefulWidget {
 }
 
 class _AlarmSoundsState extends State<AlarmSounds> {
-  bool groupValue = true;
-  List soundName = ["Silent","Fast and Furious.mp3","Beep","Butterfly","Dragon","Confident","Nokia","Samsung","Samsung"];
 
+  List soundName = ["Silent","Fast and Furious.mp3","Beep","Butterfly","Dragon","Confident","Nokia","Samsung","Samsung"];
+  int selectedItem = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -52,32 +52,45 @@ class _AlarmSoundsState extends State<AlarmSounds> {
                   height: MediaQuery.of(context).size.height,
                   child: ListView.builder(
                     shrinkWrap: true,
-                    physics: NeverScrollableScrollPhysics(),
+                    physics: const NeverScrollableScrollPhysics(),
                       itemCount: soundName.length,
                       itemBuilder: (context, index) {
                         return Padding(
                           padding: const EdgeInsets.symmetric(vertical: 6.0),
-                          child: Container(
-                            width: MediaQuery.of(context).size.width,
-                            height: 67,
-                            decoration: BoxDecoration(
-                              color: AppColors.grayColor,
-                              borderRadius: BorderRadius.circular(16),
-                            ),
-                            child: Center(
-                              child: RadioListTile(
-                                controlAffinity: ListTileControlAffinity.trailing,
+                          child: GestureDetector(
+                            onTap: (){
+                              setState(() {
+                                selectedItem = index;
+                              });
+                            },
+                            child: Container(
 
-                                title: Text(soundName[index]),
-                                activeColor: AppColors.primaryColor,
-                                value: groupValue,
-                                groupValue: groupValue,
-                                onChanged: (value) {
-                                  value = groupValue;
-                                  setState(() {
-                                    groupValue = !groupValue;
-                                  });
-                                },
+                              width: MediaQuery.of(context).size.width,
+                              height: 67,
+                              decoration: BoxDecoration(
+                                color: AppColors.grayColor,
+                                borderRadius: BorderRadius.circular(16),
+                              ),
+                              child: Padding(
+                                padding: const EdgeInsets.symmetric(horizontal: 15),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(
+                                      soundName[index],
+                                      style: TextStyle(color: index == selectedItem ? AppColors.blackColor:AppColors.blackColor, fontSize: 16),
+                                    ),
+                                    Container(
+                                      height: 20,
+                                      width: 20,
+                                      decoration:  BoxDecoration(
+                                          borderRadius: BorderRadius.circular(50),
+                                           border:  Border.all(color: AppColors.ashColor,width: 5),
+                                          color: index == selectedItem ? AppColors.primaryColor:AppColors.transparentColor,
+                                      ),
+                                    )
+                                  ],
+                                ),
                               ),
                             ),
                           ),
