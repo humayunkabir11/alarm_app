@@ -1,6 +1,7 @@
 import 'package:alarm_app/utils/color.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:sizer/sizer.dart';
 
 class CustomAlarmSound extends StatelessWidget {
   const CustomAlarmSound({
@@ -14,7 +15,7 @@ class CustomAlarmSound extends StatelessWidget {
     this.iconBoxWidth = 24,
     this.icons = Icons.arrow_forward_ios_rounded,
     this.iconSize = 16,
-    this.borderRadius = 8 ,
+    this.borderRadius = 8,
   });
 
   final VoidCallback? onTap;

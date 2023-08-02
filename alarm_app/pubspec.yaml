@@ -39,6 +39,7 @@ dependencies:
   google_fonts:
   get:
   day_night_time_picker:
+  sizer: ^2.0.15
 
 
 dev_dependencies:

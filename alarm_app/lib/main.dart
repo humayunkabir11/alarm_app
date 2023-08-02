@@ -2,6 +2,7 @@
 import 'package:alarm_app/utils/device_util.dart';
 import 'package:alarm_app/view/screen/slashscreen/splashScreen.dart';
 import 'package:flutter/material.dart';
+import 'package:sizer/sizer.dart';
 
 void main(){
   runApp(const MyApp());
@@ -26,10 +27,14 @@ class _MyAppState extends State<MyApp> {
   }
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return  Sizer(
+      builder: (context , Orientation , DeviceType){
+        return const MaterialApp(
+          debugShowCheckedModeBanner: false,
+          home: SplashScreen(),
 
-      debugShowCheckedModeBanner: false,
-       home: SplashScreen(),
+        );
+      }
 
     );
   }

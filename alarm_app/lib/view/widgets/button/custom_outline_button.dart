@@ -1,6 +1,7 @@
 import 'package:alarm_app/utils/color.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:sizer/sizer.dart';
 
 class CustomOutlineButton extends StatelessWidget {
   const CustomOutlineButton(
@@ -20,7 +21,8 @@ class CustomOutlineButton extends StatelessWidget {
         this.bottom = 0,
         this.left =0,
         this.right =0,
-        this.top = 0
+        this.top = 0,
+        this.widthFactor,
 
       });
 
@@ -36,6 +38,7 @@ class CustomOutlineButton extends StatelessWidget {
   final double left;
   final double bottom;
   final double  right;
+  final double ? widthFactor;
   final Color buttonBgColor;
   final Color buttonTextColor;
   final IconData ?buttonIcon;
@@ -48,28 +51,30 @@ class CustomOutlineButton extends StatelessWidget {
       width: sizeBoxWidth,
       child: Padding(
         padding:  EdgeInsets.only(top: top,bottom: bottom,left: left,right: right),
-        child: OutlinedButton(
-
-          style: OutlinedButton.styleFrom(
-              backgroundColor: buttonBgColor,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(borderRadius),
-              )),
-          onPressed: onPressed,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Icon(buttonIcon, size: buttonIconSize, color: Colors.white),
-              Center(
-                child: Text(
-                  buttonText,
-                  style: GoogleFonts.nunitoSans(
-                        color: buttonTextColor,
-                        fontWeight: buttonTextFontWeight,
-                        fontSize: buttonTextFontSize),
+        child: FractionallySizedBox(
+          widthFactor: widthFactor,
+          child: OutlinedButton(
+            style: OutlinedButton.styleFrom(
+                backgroundColor: buttonBgColor,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(borderRadius),
+                )),
+            onPressed: onPressed,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(buttonIcon, size: buttonIconSize, color: Colors.white),
+                Center(
+                  child: Text(
+                    buttonText,
+                    style: GoogleFonts.nunitoSans(
+                          color: buttonTextColor,
+                          fontWeight: buttonTextFontWeight,
+                          fontSize: buttonTextFontSize),
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

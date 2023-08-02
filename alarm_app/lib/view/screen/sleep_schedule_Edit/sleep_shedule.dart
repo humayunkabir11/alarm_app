@@ -66,6 +66,7 @@ class _SleepScheduleEditState extends State<SleepScheduleEdit> {
                 ),
                 const SizedBox(height: 25,),
                  CustomOutlineButton(
+                   widthFactor: 1,
                   onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>const AlarmSounds()));},
                   buttonBgColor:  AppColors.orangeButtonColor,
                   buttonTextColor: AppColors.orangeButtonTextColor,

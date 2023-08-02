@@ -5,6 +5,7 @@ import 'package:alarm_app/view/widgets/selectdays/custom_select_days.dart';
 import 'package:alarm_app/view/widgets/sound_Container/custom_alarm_sound.dart';
 import 'package:alarm_app/view/widgets/text_field/custom_text_field.dart';
 import 'package:flutter/material.dart';
+import 'package:sizer/sizer.dart';
 
 import '../alarm_list/alarm_list_screen.dart';
 
@@ -74,7 +75,7 @@ class _AlarmCreationState extends State<AlarmCreation> {
                     Flexible(
                       flex: 1,
                       child: Container(
-                        height: 40, width: 200,
+                        height: 40.h, width: 200.h,
                         color: Colors.black,
                       ),
                     ),
@@ -91,11 +92,11 @@ class _AlarmCreationState extends State<AlarmCreation> {
                   Text("Weekend",style: TextStyle(color: Color(0xff8D93A3),fontSize: 14)),
                 ],
               ),
-             const SizedBox(height: 10,),
+              SizedBox(height: 10.h,),
               CustomSelectdays(),
 
               // Alarm name field
-              const CustomTextField(
+               const CustomTextField(
                 label: "Alarm Name",
                 labelColor: AppColors.blackColor,
               ),
@@ -114,6 +115,7 @@ class _AlarmCreationState extends State<AlarmCreation> {
              const SizedBox(height: 20,),
             //  Elevated Button
              CustomOutlineButton(
+
                onPressed: (){
                  Navigator.push(context, MaterialPageRoute(builder: (_)=>AlarmListScreen()));
 

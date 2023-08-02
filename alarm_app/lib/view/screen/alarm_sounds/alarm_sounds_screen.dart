@@ -4,6 +4,7 @@ import 'package:alarm_app/view/widgets/text_field/custom_text_field.dart';
 
 import 'package:alarm_app/view/widgets/top_row/custom_top_row.dart';
 import 'package:flutter/material.dart';
+import 'package:sizer/sizer.dart';
 
 class AlarmSounds extends StatefulWidget {
   const AlarmSounds({super.key});
@@ -65,8 +66,9 @@ class _AlarmSoundsState extends State<AlarmSounds> {
                             },
                             child: Container(
 
-                              width: MediaQuery.of(context).size.width,
-                              height: 67,
+                              // width: MediaQuery.of(context).size.width,
+                              height: 67.h,
+                              width: 67.w,
                               decoration: BoxDecoration(
                                 color: AppColors.grayColor,
                                 borderRadius: BorderRadius.circular(16),
@@ -81,8 +83,8 @@ class _AlarmSoundsState extends State<AlarmSounds> {
                                       style: TextStyle(color: index == selectedItem ? AppColors.blackColor:AppColors.blackColor, fontSize: 16),
                                     ),
                                     Container(
-                                      height: 20,
-                                      width: 20,
+                                      height: 20.h,
+                                      width: 20.w,
                                       decoration:  BoxDecoration(
                                           borderRadius: BorderRadius.circular(50),
                                            border:  Border.all(color: AppColors.ashColor,width: 5),

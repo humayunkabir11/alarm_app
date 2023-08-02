@@ -7,6 +7,7 @@ import 'package:alarm_app/view/widgets/sound_Container/custom_alarm_sound.dart';
 import 'package:alarm_app/view/widgets/text_field/custom_text_field.dart';
 import 'package:alarm_app/view/widgets/top_row/custom_top_row.dart';
 import 'package:flutter/material.dart';
+import 'package:sizer/sizer.dart';
 
 class EditScreen extends StatefulWidget {
   const EditScreen({super.key});
@@ -72,8 +73,7 @@ class _EditScreenState extends State<EditScreen> {
 
                 CustomOutlineButton(
                   buttonText: "Delete this alarm",
-
-                 borderRadius: 16,
+                 borderRadius: 16.sp,
                  buttonBgColor: AppColors.orangeButtonColor,
                   buttonTextColor: AppColors.orangeButtonTextColor,
                  onPressed: (){
